@@ -3,15 +3,15 @@ vagrantfile-local:
     vm:
         box: ubuntu/trusty64
         box_url: 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
-        hostname: ''
+        hostname: 'radioneo'
         memory: '1024'
         cpus: '1'
         chosen_provider: virtualbox
         network:
-            private_network: 192.168.56.952
+            private_network: 192.168.56.195
             forwarded_port:
-                huoLAuslRYvJ:
-                    host: '6222'
+                ZsJGH0E2OrIw:
+                    host: '9828'
                     guest: '22'
         post_up_message: ''
         provider:
@@ -32,10 +32,10 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            SwQZ0r2Gcedm:
+            oJ95BDSOkzMZ:
                 source: ./
-                target: /var/www/radioneo.org
-                sync_type: default
+                target: /var/www/radioneo
+                sync_type: nfs
                 rsync:
                     args:
                         - '--verbose'
@@ -68,7 +68,7 @@ firewall:
     install: '1'
     rules: null
 apache:
-    install: '0'
+    install: '1'
     settings:
         user: www-data
         group: www-data
@@ -79,11 +79,11 @@ apache:
     modules:
         - rewrite
     vhosts:
-        HUi8eFMWZfCC:
-            servername: awesome.dev
+        H8KGTEsNGihB:
+            servername: radioneo.localhost.com
             serveraliases:
-                - www.awesome.dev
-            docroot: /var/www/awesome
+                - radioneo.localhost.com
+            docroot: /var/www/radioneo/web
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -101,23 +101,25 @@ apache:
             ssl_certs_dir: ''
     mod_pagespeed: 0
 nginx:
-    install: '1'
+    install: '0'
     settings:
         default_vhost: 1
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     vhosts:
-        OoOXF0kwsk4T:
-            server_name: radioneo.dev
+        iUWNehrFMGDF:
+            server_name: awesome.dev
             server_aliases:
-                - www.radioneo.dev
-            www_root: /var/www/radioneo.org
+                - www.awesome.dev
+            www_root: /var/www/awesome
             listen_port: '80'
             location: \.php$
             index_files:
                 - index.html
                 - index.htm
                 - index.php
+            envvars:
+                - 'APP_ENV dev'
             engine: php
             ssl_cert: ''
             ssl_key: ''
@@ -138,7 +140,7 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
-    timezone: Europe/Paris
+    timezone: America/Chicago
     mod_php: 0
 hhvm:
     install: '0'
@@ -169,7 +171,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        QxqJ0VjJXIFv:
+        QSSaUtSgWpkh:
             version: ''
 nodejs:
     install: '0'
@@ -178,14 +180,14 @@ python:
     install: '1'
     packages: {  }
     versions:
-        op5C40hnVrYL:
+        oXes29BbFtXI:
             version: ''
 mysql:
     install: '0'
     root_password: '123'
     adminer: 0
     databases:
-        ujMKaZaFSoEv:
+        sWIUE3KWrAhb:
             grant:
                 - ALL
             name: dbname
