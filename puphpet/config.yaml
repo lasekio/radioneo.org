@@ -64,6 +64,7 @@ server:
     packages:
         - vim
         - git
+        - npm
 firewall:
     install: '1'
     rules: null
