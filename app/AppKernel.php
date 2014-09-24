@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new RadioNeo\FrontBundle\RadioNeoFrontBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,5 @@
+radio_neo_front:
+    resource: "@RadioNeoFrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
