@@ -1,5 +1,10 @@
 header {
     .header-top {
         background: black;
+
+        .logo {
+            display: block;
+            margin: 10px;
+        }
     }
 }
