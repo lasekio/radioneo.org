@@ -13,6 +13,9 @@ vagrantfile-local:
                 ZsJGH0E2OrIw:
                     host: '9828'
                     guest: '22'
+                mongodb:
+                    host: '27017'
+                    guest: '27017'
         post_up_message: ''
         provider:
             virtualbox:

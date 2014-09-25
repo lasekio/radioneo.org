@@ -29,6 +29,12 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -81,3 +87,9 @@ doctrine_mongodb:
     document_managers:
         default:
             auto_mapping: true
+
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    mongodb:
+        default:
+            timestampable: true

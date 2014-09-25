@@ -1,0 +1,25 @@
+{% extends 'RadioNeoFrontBundle::layout.html.twig' %}
+
+{% block content %}
+    {% for post in posts %}
+        <article>
+            <h2>
+                <a href="{{ path('radioneo_front_blog_show', {'year': post.publicationDate|date('Y'), 'month': post.publicationDate|date('m'), 'day': post.publicationDate|date('d'), 'slug': post.slug}) }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+
+            <div class="category">{{ post.category }}</div>
+
+            <div class="publication-date">
+                {% trans with {'%publication_date%': post.publicationDate|localizeddate('medium', 'none') } %}Publié le %publication_date%{% endtrans %}
+            </div>
+
+            <div>
+                {{ post.body }}
+            </div>
+        </article>
+    {% else %}
+        <i>{% trans %}Aucun post trouvé.{% endtrans %}</i>
+    {% endfor %}
+{% endblock %}
