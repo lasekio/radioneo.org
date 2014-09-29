@@ -93,6 +93,7 @@ stof_doctrine_extensions:
     mongodb:
         default:
             timestampable: true
+            sluggable: true
 
 fos_user:
     db_driver: mongodb

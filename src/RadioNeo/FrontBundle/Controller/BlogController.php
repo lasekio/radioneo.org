@@ -31,7 +31,15 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/{year}/{month}/{day}/{slug}", name="radioneo_front_blog_show", requirements={"year" = "\d{4}", "month" = "\d{2}", "day" = "\d{2}"})
+     * @Route(
+     *     "/{year}/{month}/{day}/{slug}",
+     *     name="radioneo_front_blog_show",
+     *     requirements={
+     *         "year"  = "\d{4}",
+     *         "month" = "\d{2}",
+     *         "day"   = "\d{2}"
+     *     }
+     * )
      * @Template()
      */
     public function showAction(Post $post)
