@@ -1,0 +1,6 @@
+RadioNeo\DatabaseBundle\Document\Post:
+    post{1..20}:
+        title: <sentence(6)>
+        body: <paragraph(3)>
+        category: @category<numberBetween(1, 4)>
+        tags: <words(4)>
