@@ -10,6 +10,7 @@ Radio Néo
 Install Symfony dependencies:
 
     composer install --optimize-autoloader --prefer-dist
+    php app/console doctrine:mongodb:schema:create --index
 
 Install Bower dependencies:
 

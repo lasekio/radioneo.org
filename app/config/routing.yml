@@ -3,3 +3,5 @@ radio_neo_front:
     type:     annotation
     prefix:   /
 
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
