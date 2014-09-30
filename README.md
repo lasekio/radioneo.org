@@ -29,6 +29,14 @@ Generate entities:
 
     php app/console doctrine:mongodb:generate:documents RadioNeoDatabaseBundle --no-backup
 
+Generate repositories classes:
+
+    app/console doctrine:mongodb:generate:repositories RadioNeoDatabaseBundle
+
 Load fixtures:
 
     php app/console doctrine:mongodb:fixtures:load
+
+## TODO
+
+* Indexes on MongoDB
