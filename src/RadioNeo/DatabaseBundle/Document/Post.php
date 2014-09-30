@@ -2,6 +2,7 @@
 
 namespace RadioNeo\DatabaseBundle\Document;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -57,6 +58,23 @@ class Post
      * @MongoDB\String
      */
     protected $slug;
+
+    /**
+     * @MongoDB\String
+     * @Assert\Image()
+     */
+    protected $picture_file;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $picture_credits;
+
+    /**
+     * @MongoDB\String
+     * @Assert\File(mimeTypes = {"audio/mpeg", "audio/mp3"})
+     */
+    protected $audio_file;
 
     /**
      * Get id
@@ -242,5 +260,71 @@ class Post
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set pictureFile
+     *
+     * @param string $pictureFile
+     * @return self
+     */
+    public function setPictureFile($pictureFile)
+    {
+        $this->picture_file = $pictureFile;
+        return $this;
+    }
+
+    /**
+     * Get pictureFile
+     *
+     * @return string $pictureFile
+     */
+    public function getPictureFile()
+    {
+        return $this->picture_file;
+    }
+
+    /**
+     * Set pictureCredits
+     *
+     * @param string $pictureCredits
+     * @return self
+     */
+    public function setPictureCredits($pictureCredits)
+    {
+        $this->picture_credits = $pictureCredits;
+        return $this;
+    }
+
+    /**
+     * Get pictureCredits
+     *
+     * @return string $pictureCredits
+     */
+    public function getPictureCredits()
+    {
+        return $this->picture_credits;
+    }
+
+    /**
+     * Set audioFile
+     *
+     * @param string $audioFile
+     * @return self
+     */
+    public function setAudioFile($audioFile)
+    {
+        $this->audio_file = $audioFile;
+        return $this;
+    }
+
+    /**
+     * Get audioFile
+     *
+     * @return string $audioFile
+     */
+    public function getAudioFile()
+    {
+        return $this->audio_file;
     }
 }

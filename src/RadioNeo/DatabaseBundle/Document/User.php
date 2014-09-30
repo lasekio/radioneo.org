@@ -14,4 +14,14 @@ class User extends BaseUser
      * @MongoDB\Id(strategy="auto")
      */
     protected $id;
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
