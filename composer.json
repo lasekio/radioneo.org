@@ -25,7 +25,9 @@
         "knplabs/knp-menu-bundle": "~2.0",
         "knplabs/knp-paginator-bundle": "~2.4",
         "liip/imagine-bundle": "~1.0",
-        "stof/doctrine-extensions-bundle": "~1.1@dev"
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+
+        "ext-mongo": ">=1.2.12,<1.6-dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
