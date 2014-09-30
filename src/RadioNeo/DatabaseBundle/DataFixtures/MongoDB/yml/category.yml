@@ -1,11 +1,20 @@
 RadioNeo\DatabaseBundle\Document\Category:
+    root_category:
+        name: root
+        children:
+            - @category1
+            - @category2
     category1:
         name: Emissions
+        children:
+            - @category3
+            - @category4
+            - @category5
     category2:
         name: Festival
     category3:
         name: Emission 1
-        parent: @category1
     category4:
         name: Emission 2
-        parent: @category1
+    category5:
+        name: Emission 3

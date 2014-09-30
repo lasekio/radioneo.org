@@ -1,0 +1,23 @@
+{% macro recursive_display(categories) %}
+    {% if categories is not empty %}
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{{ path('radioneo_front_blog_category', {'slug': category.slug}) }}">
+                        {{ category.name }}
+                    </a>
+
+                    {{ _self.recursive_display(category.children) }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% import _self as category_tools %}
+
+<div class="categories">
+    <h2>{% trans %}Catégories{% endtrans %}</h2>
+
+    {{ category_tools.recursive_display(categories) }}
+</div>

@@ -27,7 +27,23 @@ class BlogController extends Controller
             ->findAll()
         ;
 
-        return array('posts' => $posts);
+        return ['posts' => $posts];
+    }
+
+    /**
+     * @Route("/categories", name="radioneo_front_blog_categories")
+     *
+     * @Template()
+     */
+    public function categoriesAction()
+    {
+        $categories = $this
+            ->get('doctrine_mongodb')
+            ->getRepository('RadioNeoDatabaseBundle:Category')
+            ->getParentCategories()
+        ;
+
+        return ['categories' => $categories];
     }
 
     /**
@@ -45,5 +61,20 @@ class BlogController extends Controller
     public function showAction(Post $post)
     {
         return array('post' => $post);
+    }
+
+    /**
+     * @Route("/{slug}", name="radioneo_front_blog_category")
+     * @Template()
+     */
+    public function categoryPostsAction(Category $category)
+    {
+        $posts = $this
+            ->get('doctrine_mongodb')
+            ->getRepository('RadioNeoDatabaseBundle:Post')
+            ->getByCategory($category)
+        ;
+
+        return ['posts' => $posts];
     }
 }
