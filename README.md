@@ -37,6 +37,10 @@ Load fixtures:
 
     php app/console doctrine:mongodb:fixtures:load
 
+Dump assets (compiles SASS files to CSS):
+
+    app/console assetic:dump --env=prod
+
 ## TODO
 
 * Indexes on MongoDB
