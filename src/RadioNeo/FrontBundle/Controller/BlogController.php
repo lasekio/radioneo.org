@@ -4,8 +4,8 @@ namespace RadioNeo\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use RadioNeo\DatabaseBundle\Document\Post;
 use RadioNeo\DatabaseBundle\Document\Category;
@@ -17,6 +17,7 @@ class BlogController extends Controller
 {
     /**
      * @Route("/", name="radioneo_front_blog_home")
+     * @Method({"GET"})
      * @Template()
      */
     public function indexAction()
@@ -32,6 +33,7 @@ class BlogController extends Controller
 
     /**
      * @Route("/categories", name="radioneo_front_blog_categories")
+     * @Method({"GET"})
      *
      * @Template()
      */
@@ -56,6 +58,7 @@ class BlogController extends Controller
      *         "day"   = "\d{2}"
      *     }
      * )
+     * @Method({"GET"})
      * @Template()
      */
     public function showAction(Post $post)
@@ -65,6 +68,7 @@ class BlogController extends Controller
 
     /**
      * @Route("/{slug}", name="radioneo_front_blog_category")
+     * @Method({"GET"})
      * @Template()
      */
     public function categoryPostsAction(Category $category)
