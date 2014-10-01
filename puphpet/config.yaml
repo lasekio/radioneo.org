@@ -4,7 +4,7 @@ vagrantfile-local:
         box: ubuntu/trusty64
         box_url: 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
         hostname: 'radioneo'
-        memory: '1024'
+        memory: '800'
         cpus: '1'
         chosen_provider: virtualbox
         network:
@@ -29,7 +29,6 @@ vagrantfile-local:
             puppet:
                 manifests_path: puphpet/puppet
                 manifest_file: site.pp
-                module_path: puphpet/puppet/modules
                 options:
                     - '--verbose'
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
