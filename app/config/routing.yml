@@ -1,3 +1,8 @@
+radio_neo_admin:
+    resource: "@RadioNeoAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
 radio_neo_front:
     resource: "@RadioNeoFrontBundle/Controller/"
     type:     annotation

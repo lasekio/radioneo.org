@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             // This app bundles
             new RadioNeo\FrontBundle\RadioNeoFrontBundle(),
             new RadioNeo\DatabaseBundle\RadioNeoDatabaseBundle(),
+            new RadioNeo\AdminBundle\RadioNeoAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
