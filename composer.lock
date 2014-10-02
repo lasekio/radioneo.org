@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "622b330fce6633af979c81ce04bdf7cd",
+    "hash": "c12ca93774c3fecfafb12469bf059c68",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -616,12 +616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/mongodb-odm.git",
-                "reference": "01146e1fa8a3c855d6f22f2c459666ce8e445e9d"
+                "reference": "096b5ef69cf69bb87efc6075119e96ff392cec84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/01146e1fa8a3c855d6f22f2c459666ce8e445e9d",
-                "reference": "01146e1fa8a3c855d6f22f2c459666ce8e445e9d",
+                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/096b5ef69cf69bb87efc6075119e96ff392cec84",
+                "reference": "096b5ef69cf69bb87efc6075119e96ff392cec84",
                 "shasum": ""
             },
             "require": {
@@ -681,7 +681,7 @@
                 "odm",
                 "persistence"
             ],
-            "time": "2014-09-16 13:30:57"
+            "time": "2014-10-01 20:56:26"
         },
         {
             "name": "doctrine/mongodb-odm-bundle",
