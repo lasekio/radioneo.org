@@ -3,8 +3,9 @@
 namespace RadioNeo\DatabaseBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
+use Doctrine\ODM\MongoDB\Query\Builder;
+
 use RadioNeo\DatabaseBundle\Document\Category;
-use RadioNeo\DatabaseBundle\Document\Post;
 
 /**
  * PostRepository
@@ -15,14 +16,27 @@ use RadioNeo\DatabaseBundle\Document\Post;
 class PostRepository extends DocumentRepository
 {
     /**
-     * Finds posts for given category and its children
+     * Get query builder for all posts
      *
      * @param  Category $searchCategory
-     * @return Post[]
+     * @return Builder
+     */
+    public function getAllQueryBuilder()
+    {
+        $queryBuilder = $this->getDefaultQueryBuilder();
+
+        return $queryBuilder;
+    }
+
+    /**
+     * Get query builder to get posts for given category and its children
+     *
+     * @param  Category $searchCategory
+     * @return Builder
      */
     public function getByCategory(Category $searchCategory)
     {
-        $queryBuilder = $this->createQueryBuilder();
+        $queryBuilder = $this->getDefaultQueryBuilder();
         $queryBuilder->addOr($queryBuilder->expr()->field('category')->references($searchCategory));
 
         $categories = $searchCategory->getAllChildren();
@@ -31,8 +45,18 @@ class PostRepository extends DocumentRepository
             $queryBuilder->addOr($queryBuilder->expr()->field('category')->references($category));
         }
 
-        $posts = $queryBuilder->getQuery()->execute();
+        return $queryBuilder;
+    }
 
-        return $posts;
+    /**
+     * Gets default configured query builder
+     *
+     * @return Builder
+     */
+    private function getDefaultQueryBuilder()
+    {
+        $queryBuilder = $this->createQueryBuilder()->sort('publication_date', 'DESC');
+
+        return $queryBuilder;
     }
 }

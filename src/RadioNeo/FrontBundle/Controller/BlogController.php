@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Doctrine\ODM\MongoDB\Query\Builder;
+use Knp\Component\Pager\Pagination\AbstractPagination;
 
 use RadioNeo\DatabaseBundle\Document\Post;
 use RadioNeo\DatabaseBundle\Document\Category;
@@ -22,13 +24,15 @@ class BlogController extends Controller
      */
     public function indexAction()
     {
-        $posts = $this
+        $queryBuilder = $this
             ->get('doctrine_mongodb')
             ->getRepository('RadioNeoDatabaseBundle:Post')
-            ->findAll()
+            ->getAllQueryBuilder()
         ;
 
-        return ['posts' => $posts];
+        $pagination = $this->getPagination($queryBuilder);
+
+        return ['pagination' => $pagination];
     }
 
     /**
@@ -73,12 +77,34 @@ class BlogController extends Controller
      */
     public function categoryPostsAction(Category $category)
     {
-        $posts = $this
+        $queryBuilder = $this
             ->get('doctrine_mongodb')
             ->getRepository('RadioNeoDatabaseBundle:Post')
             ->getByCategory($category)
         ;
 
-        return ['posts' => $posts];
+        $pagination = $this->getPagination($queryBuilder);
+
+        return ['pagination' => $pagination];
+    }
+
+    /**
+     * Paginates results
+     *
+     * @param  QueryBuilder $queryBuilder Configured query builder that gets results
+     * @return AbstractPagination
+     */
+    protected function getPagination(Builder $queryBuilder)
+    {
+        $paginator  = $this->get('knp_paginator');
+        $request    = $this->getRequest();
+
+        $pagination = $paginator->paginate(
+            $queryBuilder,
+            $request->query->get('page', 1),
+            10
+        );
+
+        return $pagination;
     }
 }

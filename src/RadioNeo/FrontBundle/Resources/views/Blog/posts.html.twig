@@ -1,23 +1,29 @@
 <section class="posts">
-    {% for post in posts %}
-        <article class="post">
-            <h2>
-                <a href="{{ path('radioneo_front_blog_show', {'year': post.publicationDate|date('Y'), 'month': post.publicationDate|date('m'), 'day': post.publicationDate|date('d'), 'slug': post.slug}) }}">
-                    {{ post.title }}
-                </a>
-            </h2>
+    {% if pagination is not empty %}
+        {% for post in pagination %}
+            <article class="post">
+                <h2>
+                    <a href="{{ path('radioneo_front_blog_show', {'year': post.publicationDate|date('Y'), 'month': post.publicationDate|date('m'), 'day': post.publicationDate|date('d'), 'slug': post.slug}) }}">
+                        {{ post.title }}
+                    </a>
+                </h2>
 
-            <div class="category">{{ post.category }}</div>
+                <div class="category">{{ post.category }}</div>
 
-            <div class="publication-date">
-                {% trans with {'%publication_date%': post.publicationDate|localizeddate('medium', 'none') } %}Publié le %publication_date%{% endtrans %}
-            </div>
+                <div class="publication-date">
+                    {% trans with {'%publication_date%': post.publicationDate|localizeddate('medium', 'none') } %}Publié le %publication_date%{% endtrans %}
+                </div>
 
-            <div>
-                {{ post.body }}
-            </div>
-        </article>
+                <div>
+                    {{ post.body }}
+                </div>
+            </article>
+        {% endfor %}
+
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
     {% else %}
-        <i>{% trans %}Aucun post trouvé.{% endtrans %}</i>
-    {% endfor %}
+        <i>{% trans %}Aucun article trouvé.{% endtrans %}</i>
+    {% endif %}
 </section>
