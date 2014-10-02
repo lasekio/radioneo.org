@@ -8,23 +8,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use RadioNeo\DatabaseBundle\Document\Post;
-use RadioNeo\AdminBundle\Form\Type\PostType;
+use RadioNeo\DatabaseBundle\Document\Artist;
+use RadioNeo\AdminBundle\Form\Type\ArtistType;
 
 /**
- * @Route("/blog")
+ * @Route("/artist")
  */
-class BlogController extends Controller
+class ArtistController extends Controller
 {
     /**
-     * @Route("/post/new", name="radioneo_admin_blog_post_new")
+     * @Route("/new", name="radioneo_admin_artist_new")
      * @Method({"GET", "POST"})
      * @Template()
      */
-    public function newPostAction(Request $request)
+    public function newAction(Request $request)
     {
-        $post = new Post();
-        $form = $this->createForm(new PostType(), $post, array(
+        $artist = new Artist();
+        $form = $this->createForm(new ArtistType(), $artist, array(
             'action' => $this->generateUrl($request->get('_route')),
             'method' => 'POST',
         ));
@@ -33,10 +33,10 @@ class BlogController extends Controller
 
         if ($form->isValid()) {
             $dm = $this->get('doctrine_mongodb')->getManager();
-            $dm->persist($post);
+            $dm->persist($artist);
             $dm->flush();
 
-            return $this->redirect($this->generateUrl('radioneo_admin_artist_new'));
+            return $this->redirect($this->generateUrl('radioneo_admin_artist_post_new'));
         }
 
         return ['form' => $form->createView()];
