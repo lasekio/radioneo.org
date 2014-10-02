@@ -1,5 +1,4 @@
-{% block datepicker_widget %}
-{% spaceless %}
+{% block datepicker_widget -%}
     {% if widget == 'single_text' %}
         {% if date_attr is not defined %}
             {% set date_attr = {} %}
@@ -14,5 +13,4 @@
             </div>
         {% endif %}
     {% endif %}
-{% endspaceless %}
-{% endblock datepicker_widget %}
+{%- endblock datepicker_widget %}
