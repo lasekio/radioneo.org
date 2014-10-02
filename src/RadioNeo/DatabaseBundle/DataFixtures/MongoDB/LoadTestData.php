@@ -17,6 +17,7 @@ class LoadTestData implements FixtureInterface
             __DIR__ . '/yml/category.yml',
             __DIR__ . '/yml/post.yml',
             __DIR__ . '/yml/artist.yml',
+            __DIR__ . '/yml/user.yml',
         );
 
         $objects = Fixtures::load($filesToLoad, $manager, array('providers' => array($this), 'locale' => 'fr'));

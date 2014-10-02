@@ -1,0 +1,7 @@
+RadioNeo\DatabaseBundle\Document\User:
+    admin_user:
+        username: test
+        plainPassword: test
+        enabled: true
+        roles:
+            - ROLE_ADMIN
