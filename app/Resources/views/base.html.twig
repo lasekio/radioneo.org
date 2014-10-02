@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Radio Néo{% endblock %}</title>
@@ -15,5 +15,6 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        {% block scripts %}{% endblock %}
     </body>
 </html>

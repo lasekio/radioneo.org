@@ -4,13 +4,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="radio_neo_admin.example" class="RadioNeo\AdminBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="radio_neo_admin.type.datepicker" class="RadioNeo\AdminBundle\Form\Type\DatePickerType">
+            <tag name="form.type" alias="datepicker" />
+        </service>
+
+        <service id="radio_neo_admin.type.tags" class="RadioNeo\AdminBundle\Form\Type\TagsType">
+            <tag name="form.type" alias="tags" />
         </service>
     </services>
-    -->
+
 </container>

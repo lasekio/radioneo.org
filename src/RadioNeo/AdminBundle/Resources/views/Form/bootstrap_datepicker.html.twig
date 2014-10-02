@@ -1,0 +1,18 @@
+{% block datepicker_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {% if date_attr is not defined %}
+            {% set date_attr = {} %}
+        {% endif %}
+
+        {% if date_attr.no_add_on is defined and date_attr.no_add_on is not empty %}
+            {{ block('form_widget_simple') }}
+        {% else %}
+            <div class="input-group date"{% for attrname, attrvalue in date_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                {{ block('form_widget_simple') }}
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endspaceless %}
+{% endblock datepicker_widget %}

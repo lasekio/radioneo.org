@@ -13,11 +13,11 @@ class PostType extends AbstractType
             ->add('category')
             ->add('title')
             ->add('body')
-            ->add('tags', 'text')
-            ->add('publication_date', null, array('widget' => 'single_text'))
-            ->add('picture_file')
+            ->add('tags', 'tags')
+            ->add('publication_date', 'datepicker', ['label' => 'Date de publication'])
+            ->add('picture_file', null, ['required' => false])
             ->add('picture_credits')
-            ->add('audio_file')
+            ->add('audio_file', null, ['required' => false])
             ->add('save', 'submit');
     }
 

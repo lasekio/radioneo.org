@@ -17,7 +17,7 @@ use RadioNeo\AdminBundle\Form\Type\PostType;
 class BlogController extends Controller
 {
     /**
-     * @Route("/post/new")
+     * @Route("/post/new", name="radioneo_admin_blog_post_new")
      * @Template()
      */
     public function newPostAction(Request $request)
@@ -28,7 +28,11 @@ class BlogController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            return $this->redirect($this->generateUrl('task_success'));
+            $dm = $this->get('doctrine_mongodb')->getManager();
+            $dm->persist($post);
+            $dm->flush();
+
+            return $this->redirect($this->generateUrl('radioneo_admin_blog_post_new'));
         }
 
         return ['form' => $form->createView()];

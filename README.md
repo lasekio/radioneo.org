@@ -20,7 +20,18 @@ Install Bower dependencies:
 
 * Symfony / Twig / Doctrine
 * MongoDB
-* Faker / Nelmio Alice
+* Symfony bundles
+    * FOSUserBundle
+    * Nelmio Alice / Faker
+    * KnpPaginatorBundle
+    * KnpMenuBundle
+    * LiipImagineBundle
+* SASS
+* Front libraries
+    * Bootstrap
+    * Bootstrap datepicker
+    * Selectize
+    * jQuery
 
 
 ## Useful commands
@@ -36,6 +47,10 @@ Generate repositories classes:
 Load fixtures:
 
     php app/console doctrine:mongodb:fixtures:load
+
+Install assets:
+
+    app/console assets:install --relative --symlink
 
 Dump assets (compiles SASS files to CSS):
 

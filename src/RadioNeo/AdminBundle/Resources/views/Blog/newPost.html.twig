@@ -2,6 +2,22 @@
 
 {% block content %}
     {{ form_start(form, {'class': 'form-horizontal'}) }}
-        {{ form_row(form) }}
+        {{ form_row(form.category) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.body) }}
+        {{ form_row(form.tags, {'attr': {'class': 'tags'}}) }}
+        {{ form_row(form.publication_date) }}
+        {{ form_row(form.picture_file) }}
+        {{ form_row(form.picture_credits) }}
+        {{ form_row(form.audio_file) }}
+        {{ form_row(form.save) }}
     {{ form_end(form) }}
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script>
+        RadioNeo.Admin.Post.initNew();
+    </script>
 {% endblock %}

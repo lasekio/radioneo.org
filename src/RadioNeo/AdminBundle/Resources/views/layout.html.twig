@@ -1,3 +1,31 @@
 {% extends 'RadioNeoFrontBundle::layout.html.twig' %}
 
-{% form_theme form 'RadioNeoAdminBundle:Form:bootstrap_3_horizontal_layout.html.twig' %}
+{% form_theme form 'RadioNeoAdminBundle:Form:bootstrap_datepicker.html.twig' 'RadioNeoAdminBundle:Form:bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('vendor/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('vendor/selectize/dist/css/selectize.bootstrap3.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('vendor/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js') }}"></script>
+    <script src="{{ asset('vendor/selectize/dist/js/standalone/selectize.min.js') }}"></script>
+
+    <script src="{{ asset('bundles/radioneoadmin/js/post.js') }}"></script>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function() {
+            $('form .input-group.date').datepicker();
+        });
+    </script>
+{% endblock %}
+
