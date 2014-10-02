@@ -7,7 +7,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(repositoryClass="RadioNeo\DatabaseBundle\Repository\ArtistRepository")
  */
 class Artist
 {
@@ -56,17 +56,10 @@ class Artist
     protected $update_date;
 
     /**
-     * @MongoDB\Date
-     */
-    protected $publication_date;
-
-    /**
      * @Gedmo\Slug(fields={"name"})
      * @MongoDB\String
      */
     protected $slug;
-
-
 
     /**
      * Get id
@@ -230,28 +223,6 @@ class Artist
     public function getUpdateDate()
     {
         return $this->update_date;
-    }
-
-    /**
-     * Set publicationDate
-     *
-     * @param date $publicationDate
-     * @return self
-     */
-    public function setPublicationDate($publicationDate)
-    {
-        $this->publication_date = $publicationDate;
-        return $this;
-    }
-
-    /**
-     * Get publicationDate
-     *
-     * @return date $publicationDate
-     */
-    public function getPublicationDate()
-    {
-        return $this->publication_date;
     }
 
     /**

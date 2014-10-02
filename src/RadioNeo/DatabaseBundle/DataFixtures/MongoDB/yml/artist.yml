@@ -1,0 +1,5 @@
+RadioNeo\DatabaseBundle\Document\Artist:
+    artist{1..80}:
+        name: <firstName()>
+        description: <paragraph(3)>
+        website_url: <url()>

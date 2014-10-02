@@ -1,0 +1,41 @@
+{% extends 'RadioNeoFrontBundle:Artist:layout.html.twig' %}
+
+{% block page_title %}
+    <h1>{% trans %}Liste des artistes{% endtrans %}</h1>
+{% endblock %}
+
+{% block artist_content %}
+    {% block letter_chooser %}
+        <section class="letter-chooser">
+            {% for letter in 'a'..'z' %}
+                <a href="{{ path('radioneo_front_artist_home', {'letter': letter}) }}">
+                    {{ letter }}
+                </a>
+            {% endfor %}
+        </section>
+    {% endblock %}
+
+    <section class="artists">
+        {% if pagination is not empty %}
+            {% for artist in pagination %}
+                <article class="artist">
+                    <h2>
+                        <a href="{{ path('radioneo_front_artist_show', {'slug': artist.slug}) }}">
+                            {{ artist.name }}
+                        </a>
+                    </h2>
+
+                    <div>
+                        {{ artist.description }}
+                    </div>
+                </article>
+            {% endfor %}
+
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        {% else %}
+            <i>{% trans %}Aucun artiste trouvé.{% endtrans %}</i>
+        {% endif %}
+    </section>
+{% endblock %}
