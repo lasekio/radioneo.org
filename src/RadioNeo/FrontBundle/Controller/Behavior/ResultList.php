@@ -3,7 +3,6 @@
 namespace RadioNeo\FrontBundle\Controller\Behavior;
 
 use Doctrine\ODM\MongoDB\Query\Builder;
-use Knp\Component\Pager\Pagination\AbstractPagination;
 
 trait ResultList
 {
@@ -11,7 +10,7 @@ trait ResultList
      * Paginates results
      *
      * @param  QueryBuilder $queryBuilder Configured query builder that gets results
-     * @return AbstractPagination
+     * @return \Knp\Component\Pager\Pagination\AbstractPagination
      */
     protected function getPagination(Builder $queryBuilder, $defaultMaxResults = 10)
     {

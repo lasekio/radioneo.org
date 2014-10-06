@@ -21,7 +21,17 @@ RadioNeo.Admin.Post = (function () {
      * Common initializations for new and edit pages
      */
     function initNewEdit() {
+        initPictureField();
+        initAudioField();
         initTags();
+    }
+
+    function initPictureField() {
+        $('#post_picture_file').fileinput();
+    }
+
+    function initAudioField() {
+        $('#post_audio_file').fileinput();
     }
 
     /**
