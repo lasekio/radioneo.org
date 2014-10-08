@@ -1,5 +1,9 @@
 {% extends 'RadioNeoFrontBundle::layout.html.twig' %}
 
 {% block content %}
-    Hello
+    <section id="latest-posts">
+        {{ render(controller('RadioNeoFrontBundle:Blog:latestPosts', {
+            'max': 3
+        })) }}
+    </section>
 {% endblock %}

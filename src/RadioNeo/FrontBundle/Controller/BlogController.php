@@ -87,4 +87,26 @@ class BlogController extends Controller
 
         return ['pagination' => $pagination];
     }
+
+    /**
+     * Block of latests posts
+     *
+     * @param integer $max Max number of posts
+     *
+     * @Route("/block/latest-posts", name="radioneo_front_block_latest_posts", requirements={"max": "\d+"})
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function latestPostsAction($max = 3)
+    {
+        $queryBuilder = $this
+            ->get('doctrine_mongodb')
+            ->getRepository('RadioNeoDatabaseBundle:Post')
+            ->getAllQueryBuilder()
+        ;
+
+        $pagination = $this->getPagination($queryBuilder, $max);
+
+        return ['pagination' => $pagination];
+    }
 }

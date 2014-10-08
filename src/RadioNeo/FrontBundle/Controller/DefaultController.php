@@ -9,8 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
+    use Behavior\ResultList;
+
     /**
-     * @Route("/")
+     * @Route("/", name="radioneo_front_home")
      * @Method({"GET"})
      * @Template()
      */

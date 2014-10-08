@@ -28,6 +28,8 @@ Install Bower dependencies:
     * [LiipImagineBundle](https://github.com/liip/LiipImagineBundle)
 * [SASS](http://sass-lang.com/)
 * [Behat](http://www.behat.org/)
+    * [Symfony2Extension](https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst)
+    * MinkExtension
 * [Bower](http://bower.io/)
 * Front libraries
     * [Bootstrap](http://getbootstrap.com/)

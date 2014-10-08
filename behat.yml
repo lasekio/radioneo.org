@@ -1,0 +1,16 @@
+default:
+    suites:
+        homepage:
+            type: symfony_bundle
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - RadioNeo\FrontBundle\Features\Context\HomepageContext:
+                    documentManager: @doctrine.odm.mongodb.document_manager
+            bundle: RadioNeoFrontBundle
+
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony2: ~

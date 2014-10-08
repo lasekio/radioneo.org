@@ -6,6 +6,8 @@
 
 {% block blog_content %}
     <article>
-        {{ post.body }}
+        {% block blog_body %}
+            {{ post.body }}
+        {% endblock %}
     </article>
 {% endblock %}
