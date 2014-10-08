@@ -18,20 +18,22 @@ Install Bower dependencies:
 
 ## Uses
 
-* Symfony / Twig / Doctrine
-* MongoDB
+* [Symfony](http://symfony.com/) / [Twig](http://twig.sensiolabs.org/) / [Doctrine](http://www.doctrine-project.org/projects/orm.html)
+* [MongoDB](https://www.mongodb.org/)
 * Symfony bundles
-    * FOSUserBundle
-    * Nelmio Alice / Faker
-    * KnpPaginatorBundle
-    * KnpMenuBundle
-    * LiipImagineBundle
-* SASS
+    * [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle)
+    * [Nelmio Alice](https://github.com/nelmio/alice)
+    * [KnpPaginatorBundle](https://github.com/KnpLabs/KnpPaginatorBundle)
+    * [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle)
+    * [LiipImagineBundle](https://github.com/liip/LiipImagineBundle)
+* [SASS](http://sass-lang.com/)
+* [Behat](http://www.behat.org/)
+* [Bower](http://bower.io/)
 * Front libraries
-    * Bootstrap
-    * Bootstrap datepicker
-    * Selectize
-    * jQuery
+    * [Bootstrap](http://getbootstrap.com/)
+    * [Bootstrap datepicker](https://github.com/eternicode/bootstrap-datepicker)
+    * [Selectize](http://brianreavis.github.io/selectize.js/)
+    * [jQuery](http://jquery.com/)
 
 
 ## Useful commands
@@ -59,3 +61,6 @@ Dump assets (compiles SASS files to CSS):
 ## TODO
 
 * Indexes on MongoDB
+    * Artist: name
+
+* Page titles
